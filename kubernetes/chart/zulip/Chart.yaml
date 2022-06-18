@@ -14,29 +14,29 @@ version: 0.7.2
 # It is recommended to use it with quotes.
 appVersion: "7.2-0"
 dependencies:
-  - name: memcached
-    repository: https://charts.bitnami.com/bitnami
-    tags:
-      - memcached
-    version: 6.0.16
-  - name: rabbitmq
-    repository: https://charts.bitnami.com/bitnami
-    tags:
-      - rabbitmq
-    version: 8.32.0
-  - name: redis
-    repository: https://charts.bitnami.com/bitnami
-    tags:
-      - redis
-    version: 16.8.7
-  - name: postgresql
-    repository: https://charts.bitnami.com/bitnami
-    tags:
-      - postgresql
-    # Note: values.yaml overwrites posgresql image to zulip/zulip-postgresql:14
-    version: 11.1.22
+- name: memcached
+  repository: https://charts.bitnami.com/bitnami
+  tags: ["memcached"]
+  version: 6.0.16
+  condition: memcached.enabled
+- name: rabbitmq
+  repository: https://charts.bitnami.com/bitnami
+  tags: ["rabbitmq"]
+  version: 8.32.0
+  condition: rabbitmq.enabled
+- name: redis
+  repository: https://charts.bitnami.com/bitnami
+  tags: ["redis"]
+  version: 16.8.7
+  condition: redis.enabled
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  tags: ["postgresql"]
+  # Note: values.yaml overwrites posgresql image to zulip/zulip-postgresql:14
+  version: 11.1.22
+  condition: postgresql.enabled
 
 sources:
-  - https://github.com/zulip/zulip
-  - https://github.com/zulip/docker-zulip
-  - https://hub.docker.com/r/zulip/docker-zulip
+- https://github.com/zulip/zulip
+- https://github.com/zulip/docker-zulip
+- https://hub.docker.com/r/zulip/docker-zulip
