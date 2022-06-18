@@ -198,6 +198,7 @@ sidecars: []
 
 ## PostgreSQL settings, see [Requirements](#Requirements).
 postgresql:
+  enabled: true
   primary:
     containerSecurityContext:
       runAsUser: 0
@@ -211,6 +212,7 @@ postgresql:
 
 ## Rabbitmq settings, see [Requirements](#Requirements).
 rabbitmq:
+  enabled: true
   auth:
     username: zulip
   ## Set this to true if you need the rabbitmq to be persistent
@@ -219,10 +221,12 @@ rabbitmq:
 
 ## Memcached settings, see [Requirements](#Requirements).
 memcached:
+  enabled: true
   memcachedUsername: "zulip@localhost"
 
 ## Redis settings, see [Requirements](#Requirements).
 redis:
+  enabled: true
   architecture: standalone
   master:
     persistence:
